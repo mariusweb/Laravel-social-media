@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Like;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -14,7 +18,24 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $allPosts = [
+            'posts' => Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
+                ->leftJoin('likes', 'posts.id', '=', 'likes.id')
+                ->leftJoin('comments', 'posts.user_id', '=', 'users.id')
+                ->select(
+                    'posts.id',
+                    'posts.post_text',
+                    'posts.image_name',
+                    'posts.created_at',
+                    'users.name as name',
+                    'users.photo_name as photo',
+                    DB::raw("count(likes.id) as likes"),
+                    DB::raw("count(comments.id) as comments"),
+                )
+                ->groupBy('posts.id')
+                ->get(),
+        ];
+        return view('dashboard', ['post' => $allPosts]);
     }
 
     /**
@@ -44,6 +65,7 @@ class PostController extends Controller
         if ($request->hasfile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path = $request->file('image')->storeAs('public/images/posts', $name);
+            $save->image_name = $name;
             $save->image = $path;
         }
 

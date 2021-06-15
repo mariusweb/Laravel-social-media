@@ -78,6 +78,7 @@ class ProfileController extends Controller
         if ($request->hasfile('photo')) {
             $name = $request->file('photo')->getClientOriginalName();
             $path = $request->file('photo')->storeAs('public/images/users', $name);
+            $user->photo_name = $name;
             $user->photo = $path;
         }
         $user->save();

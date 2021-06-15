@@ -32,16 +32,17 @@ Route::group(
     function () {
         Route::get(
             '/dashboard',
-            function () {
-                return view('dashboard');
-            }
+            [PostController::class, 'index']
         )->name('dashboard');
 
         Route::view('profile', './pages/profile')->name('profile');
         Route::view('edit-profile', './pages/edit-profile')->name('edit-profile');
         Route::view('create-post', './pages/create-post')->name('create-post');
+        // Route::view('comments', './pages/comment')->name('comments');
+        // Route::get('/comment/{id}', [CommentController::class, 'show'])->name('comment.show');
         Route::resource('post', PostController::class);
         Route::resource('profile-edit', ProfileController::class);
+        Route::resource('comment', CommentController::class);
     }
 );
 
