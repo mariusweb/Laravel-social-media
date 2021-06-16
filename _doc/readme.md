@@ -142,15 +142,13 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 - Type
 
 ```bash
-git clone https://github.com/re-pe/php20-project-manager.git
+git clone https://github.com/mariusweb/Laravel-social-media.git
 ```
 
 - then
 
 ```bash
-cd php20-project-manager
-
-git checkout develop
+cd Laravel-social-media
 
 git pull
 
@@ -159,18 +157,13 @@ code .
 
 - Insted of comand **code .** you can open **Visual Studio Code** editor and
   click **File** > **Open folder** and find folder **php20-project-manager**.
-- Copy **.env-development** file to **.env**. Add username and password for mysql login user that you have created:
+- Copy **.env-new** file to **.env**. Add username and password for mysql login user that you have created:
 
 ```env
 DB_USERNAME=<username>
 DB_PASSWORD=<password>
 ```
 
-Add to **C:\Windows\System32\drivers\etc\hosts**
-
-```hosts
-127.0.0.1 lieta.local
-```
 
 - Type **Ctrl+`**, terminal will open, then choose **New Git Bash**.
 - Type
@@ -186,8 +179,7 @@ npm run dev
 
 ```bash
 php artisan migrate
-php artisan db:seed
-npm run watch-poll
+npm run dev
 ```
 
 - Then in **Visual Studio Code** editor where terminal is click **+**
@@ -196,5 +188,4 @@ npm run watch-poll
 ```bash
 php artisan serve
 ```
-
-- Chrome browser should open page where you will be asked to **generate api key** click it and refresh the page.
+- Chrome browser should open page and refresh the page.

@@ -65,13 +65,13 @@
                 <div class="timeline-footer">
                     @if (array_key_exists('userLiked', $post))
                     @foreach ($post['userLiked'] as $userLike)
-                    @if ($userLike->like)
+                    @if ($userLike->count() > 0)
                     <a href="{{ route('like.show', $postOnly->id) }}" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Dislike</a>
-                    @elseif( $userLike->like == false || $userLike == null )
+                    @elseif( $userLike->like == false || $userLike->count() == 0 )
                     <a href="{{ route('like.show', $postOnly->id) }}" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
                     @endif
                     @endforeach
-                    @elseif( !array_key_exists('userLiked', $post) )
+                    @elseif(!array_key_exists('userLiked', $post))
                     <a href="{{ route('like.show', $postOnly->id) }}" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
                     @endif
                 </div>

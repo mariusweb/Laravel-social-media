@@ -129,7 +129,6 @@ class CommentController extends Controller
                 )->where('posts.id', $id)
                 ->get(),
             'postLikes' => Like::where('likes.post_id', $id)->where('likes.like', '=', true)->count(),
-            'userLiked' => Like::select('likes.like')->where('likes.user_id', auth()->id())->where('likes.post_id', $id)->get(),
             'comments' => Comment::leftJoin('users', 'comments.user_id', '=', 'users.id')
                 ->select('comments.post_text', 'users.name as name', 'users.photo_name as photo')
                 ->where('comments.post_id', $id)
