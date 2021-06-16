@@ -49,7 +49,7 @@
 
                                 <!-- Uploaded image area-->
                                 <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
-                                <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                <div class="image-area mt-4"><img id="imageResult" src="{{asset('/storage/images/users/'.auth()->user()->photo_name)}}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">

@@ -9,7 +9,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
+                    @if (auth()->user()->photo_name !== null)
+                    <span class="userimage"><img style="width: 120px;" src="{{asset('/storage/images/users/'.auth()->user()->photo_name)}}" alt=""></span>
+                    @elseif( auth()->user()->photo_name == null)
                     <i class="fa fa-user fa-5x" style="font-size:120px;" aria-hidden="true"></i>
+                    @endif
+
+
+
                     <div class="col mt-2">
                         <a type="submit" class="profile-edit-btn btn btn-light" name="btnAddMore" href="{{ route('edit-profile') }}">
                             {{ __('Edit Profile') }}

@@ -23,10 +23,6 @@ Route::get(
     }
 );
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
 Route::group(
     ['middleware' => 'auth'],
     function () {
@@ -38,11 +34,11 @@ Route::group(
         Route::view('profile', './pages/profile')->name('profile');
         Route::view('edit-profile', './pages/edit-profile')->name('edit-profile');
         Route::view('create-post', './pages/create-post')->name('create-post');
-        // Route::view('comments', './pages/comment')->name('comments');
-        // Route::get('/comment/{id}', [CommentController::class, 'show'])->name('comment.show');
+        Route::post('/search', [PostController::class, 'search'])->name('search');
         Route::resource('post', PostController::class);
         Route::resource('profile-edit', ProfileController::class);
         Route::resource('comment', CommentController::class);
+        Route::resource('like', LikeController::class);
     }
 );
 
