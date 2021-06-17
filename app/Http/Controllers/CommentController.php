@@ -55,6 +55,7 @@ class CommentController extends Controller
                 ->select(
                     'posts.id',
                     'posts.post_text',
+                    'posts.user_id',
                     'posts.image_name',
                     'posts.created_at',
                     'users.name as name',
