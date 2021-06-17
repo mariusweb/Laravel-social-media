@@ -186,5 +186,5 @@ npm run dev
 ```bash
 php artisan serve
 ```
-- Chrome browser should open page and refresh the page.
+- Then open this link [Localhost](http://127.0.0.1:8000/) in the Chrome browser.
 
