@@ -121,9 +121,9 @@
             <!-- begin timeline-body -->
             <div class="timeline-body">
                 <div class="timeline-header">
-                    @if ($postOnly->photo !== null)
+                    @if ($comment->photo !== null)
                     <span class="userimage"><img src="{{asset('/storage/images/users/'.$comment->photo)}}" alt=""></span>
-                    @elseif( $postOnly->photo == null)
+                    @elseif( $comment->photo == null)
                     <i class="fa fa-user fa-5x" style="font-size:50px;" aria-hidden="true"></i>
                     @endif
 
