@@ -150,8 +150,6 @@ git clone https://github.com/mariusweb/Laravel-social-media.git
 ```bash
 cd Laravel-social-media
 
-git pull
-
 code .
 ```
 
