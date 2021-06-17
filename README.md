@@ -135,7 +135,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 - Click **OK**, **OK**, **OK**.
 - Restart Windows System.
 
-## Adding laravel react project
+## Adding laravel project
 
 - Create new folder.
 - Rigth-click on it and select **Git Bash Here**.
